@@ -1,4 +1,5 @@
 flask
+flask shell
 flask-sqlalchemy
 flask-migrate
 ipython
