@@ -28,19 +28,18 @@ def add_fragnance():
 def add_brand():
     name = request.form["name"]
     surname = request.form["surname"]
-    birth = request.form["birth"]
     if not name:
         return "Error"
 
-    brand = Brand(name=name, surname=surname, birth=birth)
+    brand = Brand(name=name, surname=surname)
     db.session.add(brand)
     db.session.commit()
     return redirect("/")
 
 
 @app.route("/assign/", methods=["POST"])
-def assign_fragnance():  # assign fragnance to brand
-    fragnance_id = request.form["fragnances_id"]
+def assign_fragnance():
+    fragnance_id = request.form["fragnance_id"]
     brand_id = request.form["brand_id"]
 
     fragnance = Fragnance.query.get(fragnance_id)
@@ -64,6 +63,7 @@ def delete_fragnance(fragnance_id):
 
 @app.route("/delete/<int:brand_id>")
 def delete_brand(brand_id):
+
     brand = Brand.query.get(brand_id)
     if not brand:
         return redirect("/")
@@ -79,7 +79,7 @@ def fragnance_in_stock(fragnance_id):
     print(f"def fragnance:  ", fragnance)
     if not fragnance:
         return redirect("/")
-    if not fragnance.stock:
+    if fragnance.stock == False:
         fragnance.stock = True
 
     db.session.add(fragnance)
@@ -93,10 +93,13 @@ def fragnance_out_of_stock(fragnance_id):
     print(f"def fragnance:  ", fragnance)
     if not fragnance:
         return redirect("/")
-    if fragnance.stock:
+    if fragnance.stock == True:
         fragnance.stock = False
 
     db.session.add(fragnance)
     db.session.commit()
     return redirect("/")
 
+
+if __name__ == "__main__":
+    app.run(debug=True)
