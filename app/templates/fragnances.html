@@ -1,0 +1,101 @@
+{% extends "index.html" %}
+
+{% block head %} <name>fragnance Shelf</name> {% endblock %}
+
+{% block body %}
+<a name="top"></a>
+<h1> Fragnance Library 2.0</h1>
+<div class="row">
+    <!-- Adding section -->
+    <div class="column1">
+        <div class="adding_panel">
+            <div class="fragnance_addind">
+                <h3>New Fragnance</h3>
+                <form action="/fragnance/" method="post">
+                    <p><input type="text" name="name" placeholder="Name..."></p>
+                    <p><input type="text" name="year" placeholder="Year..."></p>
+                    <p><input type="text" name="price" placeholder="Price..."></p>
+                    <input type="submit" value="Add Fragnance">
+                </form>
+            </div>
+            <div class="brand_adding">
+                <h3>New Brand</h3>
+                <form action="/brand/" method="post">
+                    <p><input type="text" name="name" placeholder="Name"></p>
+                    <p><input type="text" name="surname" placeholder="Surname"></p>
+                    <input type="submit" value="Add Brand">
+                </form>
+            </div>
+        </div><br><br><br>
+        <!-- Assign section -->
+        <div class="column">
+            <h3>Assign Brand to Fragnance</h3>
+            <form action="/assign/" method="post">
+                <p><input type="text" name="brand_id" placeholder="Brand's ID..."></p>
+                <p><input type="text" name="fragnances_id" placeholder="Fragnance's ID..."></p>
+                <input type="submit" value="Assign Fragnance">
+            </form>
+            <table class="ids">
+                <tr>
+                    <th>Brand</th>
+                    <th>Brand's ID</th>
+                </tr>
+                {% for brand in brands %}
+                <tr>
+                    <td>{{ brand }}</td>
+                    <td>{{ brand.id }}</td>
+                </tr>
+                {% endfor %}
+
+                <tr>
+                    <th>Fragnance</th>
+                    <th>Fragnance's ID</th>
+                    {% for fragnance in fragnances %}
+                </tr>
+                <td>{{ fragnance }}</td>
+                <td>{{ fragnance.id }}</td>
+
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+    <!-- Fragnance Shelf section -->
+    <div class="column2">
+        <div class="fragnance_display">
+            <h2>Fragnance shelf</h2>
+            <h4>If fragnances name <span style="text-decoration: line-through;">scored off</span>. <br>Fragnance not in stock.
+            </h4>
+            <table>
+                <tr>
+                    <th>Brand</th>
+                    <th>Fragnance</th>
+                    <th>Stock</th>
+                </tr>
+                {% for fragnance in fragnances %}
+                <tr>
+                    <td>{{ fragnance.brand }}</td>
+                    <td>{% if fragnance.stock %} <strike> {% endif %}{{ fragnance.name }} {% if fragnance.stock %} </strike>{%
+                        endif %}</td>
+                    <td>
+                        <button type="button" onclick='window.location.href="/in_stock/{{ fragnance.id }}"'>In Stock
+                        </button>
+                        <br>
+                        <button type="button" onclick='window.location.href="/out_stock/{{ fragnance.id }}"'>Out Of
+                            Stock </button>
+                        <br>
+                        <button type="button" onclick='window.location.href="delete/{{ fragnance.id }}"'>Delete Fragnance
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <br>
+        <br>
+        <!-- Return -->
+        <button type="button" onclick='window.location.href="#top"'>BACK TO TOP</button>
+    </div>
+</div>
+{% endblock %}

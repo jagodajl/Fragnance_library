@@ -1,4 +1,4 @@
- -m flask runflask
+flask
 flask-sqlalchemy
 flask-migrate
 ipython

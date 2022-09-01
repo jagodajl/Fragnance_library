@@ -17,6 +17,7 @@ class Fragnance (db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), index=True, nullable=True)
     year = db.Column(db.Integer, index=True, nullable=True)
+    price = db.Column(db.Integer, index=True, nullable=True)
     brand_id = db.Column(db.Integer, db.ForeignKey("brand.id"))
 
     stock = db.Column(db.Boolean, default=False)
