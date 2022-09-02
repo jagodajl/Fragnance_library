@@ -1,31 +1,41 @@
 html {
     height: 100%;
 }
+
+body {
+  background-color: rgb(137, 163, 188);
+}
+
 h1 {
-    text-align: center;
-    font-size: 30px;
-    font-family: 'Century Gothic'
-    margin-bottom: 0%;
-    border: 1px solid gold;
-    background-color: rgb(137, 163, 188);
     color: dark gold;
+    font-size: 28 px;
+    font-family: 'Century Gothic'
+
 }
 h2 {
-    text-decoration: underline;
-}
-h3{
-    font-size: 20px;
+    margin-bottom: 20px;
     font-family: 'Century Gothic'
-    text-decoration: underline;
+
+}
+h3 {
+    font-size: 15px;
+    font-family: 'Century Gothic'
+}
+
 }
 h4 {
-    font-size: 12px;
+    font-size: 20px;
     font-family: 'Century Gothic'
 }
+
+
 table, th, td {
     border: 1px solid gold;
-    margin: auto;
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 12px;
+    font-family: 'Century Gothic'
+
 }
 .adding_panel {
     text-align: center;
@@ -34,15 +44,18 @@ table, th, td {
     text-align: center;
 }
 
+
 .column1 {
     flex: 50%;
     background-color: rgb(137, 163, 188);
     border: 1px solid gold;
+    text-align: center;
   }
   .column2 {
     flex: 50%;
     background-color: rgb(137, 163, 188);
     border: 1px solid gold;
+    text-align: center;
   }
   .row {
     display: flex;

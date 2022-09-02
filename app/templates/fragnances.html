@@ -1,14 +1,14 @@
 {% extends "index.html" %}
 
-{% block head %} <name>fragnance Shelf</name> {% endblock %}
+{% block head %} <name></name> {% endblock %}
 
 {% block body %}
 <a name="top"></a>
-<h1> Fragnance Library 2.0</h1>
+<h1> Perfumery </h1>
 <div class="row">
     <!-- Adding section -->
     <div class="column1">
-        <div class="adding_panel">
+        <div class="adding_panel"><br>
             <div class="fragnance_addind">
                 <h3>New Fragnance</h3>
                 <form action="/fragnance/" method="post">
@@ -18,7 +18,7 @@
                     <input type="submit" value="Add Fragnance">
                 </form>
             </div>
-            <div class="brand_adding">
+            <div class="brand_adding"><br>
                 <h3>New Brand</h3>
                 <form action="/brand/" method="post">
                     <p><input type="text" name="name" placeholder="Name"></p>
@@ -26,10 +26,10 @@
                     <input type="submit" value="Add Brand">
                 </form>
             </div>
-        </div><br><br><br>
+        </div><br>
         <!-- Assign section -->
         <div class="column">
-            <h3>Assign Brand to Fragnance</h3>
+            <h3>Assign Brand to a Fragnance</h3>
             <form action="/assign/" method="post">
                 <p><input type="text" name="brand_id" placeholder="Brand's ID..."></p>
                 <p><input type="text" name="fragnances_id" placeholder="Fragnance's ID..."></p>
@@ -57,16 +57,15 @@
 
                 </tr>
                 {% endfor %}
-
+        </div><br><br>
             </table>
         </div>
     </div>
     <!-- Fragnance Shelf section -->
     <div class="column2">
         <div class="fragnance_display">
-            <h2>Fragnance shelf</h2>
-            <h4>If fragnances name <span style="text-decoration: line-through;">scored off</span>. <br>Fragnance not in stock.
-            </h4>
+            <h2>Our catalog:</h2>
+            <h4>If fragnances name <span style="text-decoration: line-through;">scored off</span>. <br>Fragnance not in stock.</h4>
             <table>
                 <tr>
                     <th>Brand</th>
@@ -91,11 +90,12 @@
                 </tr>
                 {% endfor %}
             </table>
-        </div>
-        <br>
-        <br>
+        </div><br><br><br>
         <!-- Return -->
-        <button type="button" onclick='window.location.href="#top"'>BACK TO TOP</button>
+        <button type="button" onclick='window.location.href="#top"'>BACK TO TOP</button><br><br><br>
+            <div class="footer"><img src="{{url_for('static',filename='potion2.png')}}"
+        </div>
     </div>
+
 </div>
 {% endblock %}
