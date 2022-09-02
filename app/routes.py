@@ -77,7 +77,7 @@ def fragnance_in_stock(fragnance_id):
     print(f"def fragnance:  ", fragnance)
     if not fragnance:
         return redirect("/")
-    if fragnance.stock == False:
+    if not fragnance.stock:
         fragnance.stock = True
 
     db.session.add(fragnance)
@@ -91,7 +91,7 @@ def fragnance_out_of_stock(fragnance_id):
     print(f"def fragnance:  ", fragnance)
     if not fragnance:
         return redirect("/")
-    if fragnance.stock == True:
+    if fragnance.stock:
         fragnance.stock = False
 
     db.session.add(fragnance)

@@ -43,8 +43,6 @@ table, th, td {
 .fragnance_display {
     text-align: center;
 }
-
-
 .column1 {
     flex: 50%;
     background-color: rgb(137, 163, 188);
