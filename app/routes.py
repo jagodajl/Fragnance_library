@@ -39,12 +39,11 @@ def add_brand():
 
 @app.route("/assign/", methods=["POST"])
 def assign_fragnance():
-    fragnance_id = request.form["fragnance_id"]
+    fragnance_id = request.form["fragnances_id"]
     brand_id = request.form["brand_id"]
 
     fragnance = Fragnance.query.get(fragnance_id)
     fragnance.brand_id = brand_id
-
     db.session.add(fragnance)
     db.session.commit()
     return redirect("/")
@@ -63,7 +62,6 @@ def delete_fragnance(fragnance_id):
 
 @app.route("/delete/<int:brand_id>")
 def delete_brand(brand_id):
-
     brand = Brand.query.get(brand_id)
     if not brand:
         return redirect("/")
